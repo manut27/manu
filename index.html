@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manuel Torres Guevara | Strategic Data Leader</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Raleway:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0a0e1a;
+            --bg-secondary: #0f1628;
+            --panel-bg: rgba(15, 22, 40, 0.5);
+            --accent-color: #38bdf8;
+            --accent-purple: #a78bfa;
+            --text-main: #f1f5f9;
+            --text-muted: #94a3b8;
+            --border-color: rgba(56, 189, 248, 0.1);
+            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, var(--bg-color) 0%, var(--bg-secondary) 100%);
+            background-attachment: fixed;
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 0;
+            margin: 0;
+            overflow-x: hidden;
+        }
+
+        @keyframes slideInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 40px rgba(56, 189, 248, 0.25); }
+            50% { box-shadow: 0 0 60px rgba(56, 189, 248, 0.4); }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .hero-section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 60px;
+            align-items: center;
+            padding: 80px 0 100px 0;
+            animation: slideInUp 0.8s ease-out;
+        }
+
+        .hero-content {
+            flex: 1;
+            min-width: 320px;
+            z-index: 2;
+        }
+
+        .hero-visual {
+            flex: 0 1 300px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 1s ease-out 0.3s backwards;
+        }
+
+        .avatar-frame {
+            position: relative;
+            width: 260px;
+            height: 260px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent-color), var(--accent-purple), #1e1b4b);
+            padding: 6px;
+            box-shadow: 0 0 60px rgba(56, 189, 248, 0.3), 0 20px 40px rgba(0, 0, 0, 0.5), inset 0 0 30px rgba(255, 255, 255, 0.1);
+            animation: pulse-glow 4s ease-in-out infinite;
+            transition: var(--transition);
+        }
+
+        .avatar-frame:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 80px rgba(56, 189, 248, 0.4), 0 30px 60px rgba(0, 0, 0, 0.6), inset 0 0 40px rgba(255, 255, 255, 0.15);
+        }
+
+        .avatar-frame img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            background-color: #1e293b;
+            filter: brightness(1);
+            transition: var(--transition);
+        }
+
+        .avatar-frame:hover img {
+            filter: brightness(1.1) contrast(1.1);
+        }
+
+        .avatar-badge {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #10b981, #059669);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 0.8rem;
+            text-align: center;
+            border: 3px solid var(--bg-color);
+            box-shadow: 0 0 20px rgba(16, 185, 129, 0.4);
+        }
+
+        .headline-tag {
+            color: var(--accent-color);
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            display: inline-block;
+            padding: 8px 16px;
+            background: rgba(56, 189, 248, 0.1);
+            border-radius: 20px;
+            border: 1px solid rgba(56, 189, 248, 0.2);
+        }
+
+        h1 {
+            font-family: 'Raleway', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 600;
+            line-height: 1.3;
+            margin-bottom: 25px;
+            background: linear-gradient(to right, #ffffff 0%, #60a5fa 50%, var(--accent-color) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: slideInUp 0.8s ease-out 0.1s backwards;
+        }
+
+        .lead-text {
+            font-size: 1rem;
+            color: var(--text-muted);
+            margin-bottom: 30px;
+            text-align: justify;
+            line-height: 1.8;
+            animation: slideInUp 0.8s ease-out 0.2s backwards;
+            font-weight: 300;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            animation: slideInUp 0.8s ease-out 0.3s backwards;
+        }
+
+        .btn {
+            padding: 12px 28px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-decoration: none;
+            transition: var(--transition);
+            border: 2px solid transparent;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent-color), #06b6d4);
+            color: #000;
+            box-shadow: 0 10px 30px rgba(56, 189, 248, 0.2);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(56, 189, 248, 0.35);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--accent-color);
+            border: 2px solid var(--accent-color);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(56, 189, 248, 0.1);
+            transform: translateY(-3px);
+        }
+
+        .section-title {
+            text-align: center;
+            font-family: 'Raleway', sans-serif;
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 50px;
+            color: #ffffff;
+            animation: slideInUp 0.8s ease-out backwards;
+        }
+
+        .section-title span {
+            background: linear-gradient(to right, var(--accent-color), var(--accent-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        section {
+            margin-bottom: 80px;
+        }
+
+        .story-block {
+            background: linear-gradient(135deg, rgba(30, 41, 59, 0.3), rgba(15, 23, 42, 0.5));
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 45px;
+            margin-bottom: 60px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            transition: var(--transition);
+            animation: slideInUp 0.8s ease-out backwards;
+        }
+
+        .story-block:hover {
+            border-color: rgba(56, 189, 248, 0.3);
+            background: linear-gradient(135deg, rgba(30, 41, 59, 0.4), rgba(15, 23, 42, 0.6));
+        }
+
+        .story-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .story-text h3 {
+            color: var(--accent-color);
+            font-family: 'Raleway', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .story-text p {
+            color: #cbd5e1;
+            font-size: 0.95rem;
+            text-align: justify;
+            margin-bottom: 15px;
+            line-height: 1.8;
+            font-weight: 300;
+        }
+
+        .problems-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            margin-bottom: 60px;
+        }
+
+        .problem-card {
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.4), rgba(30, 41, 59, 0.2));
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 28px;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            animation: slideInUp 0.8s ease-out backwards;
+        }
+
+        .problem-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(to right, var(--accent-color), transparent);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: var(--transition);
+        }
+
+        .problem-card:hover {
+            border-color: rgba(56, 189, 248, 0.3);
+            transform: translateY(-8px);
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.6), rgba(30, 41, 59, 0.3));
+            box-shadow: 0 15px 40px rgba(56, 189, 248, 0.1);
+        }
+
+        .problem-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .problem-card h4 {
+            color: #ffffff;
+            font-family: 'Raleway', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .problem-card h4::before {
+            content: "→";
+            color: var(--accent-color);
+            font-weight: 700;
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+
+        .problem-card:hover h4::before {
+            transform: translateX(5px);
+        }
+
+        .problem-card p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            text-align: left;
+            line-height: 1.6;
+            font-weight: 300;
+        }
+
+        .cv-layout {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .cv-main {
+            flex: 2;
+            min-width: 320px;
+        }
+
+        .cv-side {
+            flex: 1;
+            min-width: 280px;
+        }
+
+        .panel {
+            background: var(--panel-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 32px;
+            margin-bottom: 25px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            transition: var(--transition);
+            animation: slideInUp 0.8s ease-out backwards;
+        }
+
+        .panel:hover {
+            border-color: rgba(56, 189, 248, 0.2);
+            background: rgba(15, 23, 42, 0.7);
+        }
+
+        .job-card {
+            margin-bottom: 28px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding-bottom: 25px;
+            animation: slideInUp 0.8s ease-out backwards;
+        }
+
+        .job-card:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+            margin-bottom: 0;
+        }
+
+        .job-title {
+            font-family: 'Raleway', sans-serif;
+            font-size: 1.15rem;
+            color: #f8fafc;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .job-meta {
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        .job-card ul {
+            margin-left: 20px;
+            color: #cbd5e1;
+            font-size: 0.9rem;
+            font-weight: 300;
+        }
+
+        .job-card li {
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+
+        .pill {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.05);
+            color: #cbd5e1;
+            padding: 6px 14px;
+            font-size: 0.75rem;
+            border-radius: 16px;
+            margin: 5px 6px 5px 0;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: var(--transition);
+            font-weight: 500;
+        }
+
+        .pill:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .pill-blue {
+            background: rgba(56, 189, 248, 0.15) !important;
+            color: var(--accent-color) !important;
+            border: 1px solid rgba(56, 189, 248, 0.3) !important;
+        }
+
+        .pill-blue:hover {
+            background: rgba(56, 189, 248, 0.25) !important;
+            box-shadow: 0 0 15px rgba(56, 189, 248, 0.2);
+        }
+
+        .footer-cta {
+            background: linear-gradient(135deg, rgba(30, 27, 75, 0.5), rgba(15, 23, 42, 0.8));
+            border: 1px solid rgba(56, 189, 248, 0.15);
+            border-radius: 16px;
+            padding: 55px 40px;
+            text-align: center;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
+            animation: slideInUp 0.8s ease-out backwards;
+        }
+
+        .footer-cta h2 {
+            font-family: 'Raleway', sans-serif;
+            color: #ffffff;
+            margin-bottom: 15px;
+            font-size: 1.8rem;
+            font-weight: 600;
+        }
+
+        .footer-cta p {
+            font-weight: 300;
+        }
+
+        .contact-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 30px;
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            font-weight: 300;
+        }
+
+        .contact-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .contact-label {
+            color: var(--text-muted);
+        }
+
+        .contact-value {
+            color: var(--text-main);
+            font-weight: 500;
+        }
+
+        @media (max-width: 768px) {
+            .story-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cv-layout {
+                flex-direction: column;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+        }
+
+        .problem-card:nth-child(1) { animation-delay: 0s; }
+        .problem-card:nth-child(2) { animation-delay: 0.1s; }
+        .problem-card:nth-child(3) { animation-delay: 0.2s; }
+        .problem-card:nth-child(4) { animation-delay: 0.3s; }
+        .problem-card:nth-child(5) { animation-delay: 0.4s; }
+        .problem-card:nth-child(6) { animation-delay: 0.5s; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <section class="hero-section">
+            <div class="hero-content">
+                <div class="headline-tag">📊 Business Intelligence & Strategy</div>
+                <h1>La IA amplifica la velocidad de las decisiones. El criterio humano asegura su rentabilidad.</h1>
+                <p class="lead-text">
+                    Soy Manuel Torres Guevara. Desarrollo arquitecturas de analítica avanzada y automatización inteligente para simplificar la toma de decisiones complejas en Direcciones de Operaciones y Comercial. Mi experiencia combina 7+ años liderando estrategias de Revenue Growth Management, Pricing competitivo, y transformación digital en sectores de consumo masivo.
+                </p>
+                <div class="cta-buttons">
+                    <a href="contact-grid" class="btn btn-primary">📬 Contactarme</a>
+                    <a href="https://www.linkedin.com/in/manuel-torres-guevara-0590205b/" target="_blank" class="btn btn-secondary">💼 LinkedIn</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="avatar-frame">
+                    <img src="https://media.licdn.com/dms/image/v2/D4E03AQFCUo8XXI-wdQ/profile-displayphoto-crop_800_800/B4EZ4y2oC8HcAI-/0/1778969644251?e=1780531200&v=beta&t=QAPpTRfiV3F9mtssm1-7Shd3yKwngDU8I-76oTa-WY8" alt="Manuel Torres Guevara">
+                    <div class="avatar-badge">🎯 Open</div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="section-title">El Motor Humano: <span>Historia y Filosofía</span></h2>
+            <div class="story-block">
+                <div class="story-grid">
+                    <div class="story-text">
+                        <h3>🌍 Adaptación y Resiliencia en 3 Países</h3>
+                        <p>
+                            Mi carrera profesional no se construyó en una zona de confort. Liderar la gestión de datos y estrategias comerciales en países como Venezuela, Argentina y ahora España requirió adaptarse constantemente a distintos entornos culturales, económicos y operativos.
+                        </p>
+                        <p>
+                            Afrontar entornos culturales y económicos cambiantes me enseñó que las herramientas técnicas cambian, pero la necesidad de generar certidumbre financiera a través de números claros, relevantes y oportunos es inmutable.
+                        </p>
+                    </div>
+                    <div class="story-text">
+                        <h3>❤️ El Propósito Detrás de la Pantalla</h3>
+                        <p>
+                            Mi dedicación y nivel de exigencia corporativa tienen un puerto claro: mi familia. Afincado firmemente en Madrid y potenciando mi visión ejecutiva a través de un MBA.
+                        </p>
+                        <p>
+                            Creo en conectar con los equipos operativos desde la empatía y el respeto mutuo; la soberbia técnica no vende. Lo que vende es el trabajo coordinado de alto nivel y resultados medibles que impacten el bottom-line.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="section-title">¿Qué problemas comerciales y de datos <span>resuelvo</span>?</h2>
+            <div class="problems-grid">
+                <div class="problem-card">
+                    <h4>Datos dispersos y sin control</h4>
+                    <p>Centralizo arquitecturas analíticas en fuentes únicas de verdad para que el Staff Directivo deje de discutir qué dato es el correcto y empiece a decidir.</p>
+                </div>
+                <div class="problem-card">
+                    <h4>Fuga de margen en canales de venta</h4>
+                    <p>Diseño y ejecuto auditorías de Pricing competitivas a nivel nacional, detectando desviaciones puntuales y protegiendo la rentabilidad del P&L.</p>
+                </div>
+                <div class="problem-card">
+                    <h4>Sobreanálisis mecánico innecesario</h4>
+                    <p>Utilizo Inteligencia Artificial y flujos automatizados para delegar la preparación de reportes, ganando agilidad de respuesta inmediata.</p>
+                </div>
+                <div class="problem-card">
+                    <h4>Fuerza de ventas desalineada</h4>
+                    <p>Estructuro modelos analíticos precisos para esquemas de compensación variable y KPI comerciales basados en performance Sell-In y Sell-Out.</p>
+                </div>
+                <div class="problem-card">
+                    <h4>Asignación ineficiente de cuotas</h4>
+                    <p>Desarrollo modelos predictivos para la segmentación inteligente de cuotas por canal, categoría de producto y SKU.</p>
+                </div>
+                <div class="problem-card">
+                    <h4>Gobernanza del Data Warehouse deficiente</h4>
+                    <p>Automatizo la ingesta de datos de mercado masivos (Nielsen / Scentia) transformándolos en planes de acción comerciales ejecutables.</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="section-title">El Aparato Técnico: <span>Trayectoria Ejecutiva</span></h2>
+            <div class="cv-layout">
+                
+                <div class="cv-main">
+                    <div class="panel">
+                        <div class="job-card">
+                            <div class="job-title">🎯 Especialista Senior de Inteligencia Comercial</div>
+                            <div class="job-meta">Dikter S.A. – Devre | Jun 2023 – Ago 2025 | Argentina</div>
+                            <ul>
+                                <li>Dirigí la estrategia nacional de Pricing y análisis competitivo para la optimización de márgenes comerciales.</li>
+                                <li>Diseñé e implementé la arquitectura centralizada en Power BI para la red de locales propios y franquicias comerciales.</li>
+                                <li>Generé análisis de tendencias de compra y comportamiento del consumidor para soporte directo de la Dirección Comercial.</li>
+                            </ul>
+                        </div>
+
+                        <div class="job-card">
+                            <div class="job-title">📈 Insight Specialist</div>
+                            <div class="job-meta">Red Bull | Ago 2019 – Sep 2021 | Argentina</div>
+                            <ul>
+                                <li>Responsable de la generación de Business Intelligence regional y el procesamiento de auditorías de consumo (Nielsen, Scentia).</li>
+                                <li>Diseñé e implementé indicadores clave de performance comercial y modelos de compensación variable.</li>
+                                <li>Gobernanza y automatización del Data Warehouse local para acelerar la toma de decisiones estratégicas.</li>
+                            </ul>
+                        </div>
+
+                        <div class="job-card">
+                            <div class="job-title">🎲 Sales Planning & Route to Market</div>
+                            <div class="job-meta">Mondelēz International | Jul 2017 – May 2019 | Venezuela</div>
+                            <ul>
+                                <li>Estructuré el modelo predictivo de asignación de cuotas nacionales segmentado por canal, categoría y SKU.</li>
+                                <li>Optimización analítica de presupuestos de Trade Spend e implementación de sistemas mediante SAP Business Objects.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cv-side">
+                    <div class="panel">
+                        <h3 style="font-size: 1.2rem; margin-bottom: 20px; color: #fff; font-family: 'Raleway', sans-serif; font-weight: 600;">🎓 Educación Ejecutiva</h3>
+                        <p style="font-size: 0.95rem; margin-bottom: 8px; font-weight: 600;">MBA (Master in Business Administration)</p>
+                        <p style="font-size: 0.85rem; color: var(--accent-color); margin-bottom: 20px; font-weight: 500;">En curso | Madrid, España</p>
+                        
+                        <p style="font-size: 0.95rem; margin-bottom: 8px; font-weight: 600;">Licenciatura en Ciencias Administrativas</p>
+                        <p style="font-size: 0.85rem; color: var(--text-muted);">Universidad Monteávila | Venezuela</p>
+                    </div>
+
+                    <div class="panel">
+                        <h3 style="font-size: 1.2rem; margin-bottom: 20px; color: #fff; font-family: 'Raleway', sans-serif; font-weight: 600;">⚡ Competencias Core</h3>
+                        <span class="pill pill-blue">Revenue Growth Management</span>
+                        <span class="pill pill-blue">Commercial Strategy</span>
+                        <span class="pill pill-blue">Pricing & Profitability</span>
+                        <span class="pill pill-blue">Route to Market</span>
+                        <span class="pill pill-blue">Data Governance</span>
+                        <span class="pill pill-blue">Business Intelligence</span>
+                    </div>
+
+                    <div class="panel">
+                        <h3 style="font-size: 1.2rem; margin-bottom: 20px; color: #fff; font-family: 'Raleway', sans-serif; font-weight: 600;">🛠️ Ecosistema Digital</h3>
+                        <span class="pill">Power BI</span>
+                        <span class="pill">Excel Avanzado</span>
+                        <span class="pill">Power Query</span>
+                        <span class="pill">Python</span>
+                        <span class="pill">SAP SD</span>
+                        <span class="pill">Business Objects</span>
+                        <span class="pill">Nielsen / Scentia</span>
+                        <span class="pill">Azure</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <footer class="footer-cta" id="contact">
+            <h2>¿Conectamos el dato con la rentabilidad?</h2>
+            <p>
+                Estoy establecido en Madrid, cursando el MBA y con plena disponibilidad para integrarme en posiciones de liderazgo estratégico comercial. Siempre abierto a nuevas oportunidades y colaboraciones con equipos que deseen transformar sus operaciones.
+            </p>
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <span class="contact-label">📧 Email</span>
+                    <a href="mailto:mtorresguevara@gmail.com" style="color: var(--accent-color); text-decoration: none; font-weight: 500;">mtorresguevara@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-label">📱 Teléfono</span>
+                    <span class="contact-value">+34 671 61 23 64</span>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-label">💼 LinkedIn</span>
+                    <a href="https://www.linkedin.com/in/manuel-torres-guevara-0590205b/" target="_blank" style="color: var(--accent-color); text-decoration: none; font-weight: 500;">Manuel Torres</a>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+</body>
+</html>
